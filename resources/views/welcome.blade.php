@@ -9,7 +9,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        <link href="@vite(['resources/css/app.css', 'resources/js/app.js'])" rel="stylesheet">
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
         <style>
