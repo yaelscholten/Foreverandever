@@ -30,41 +30,22 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        // Validatie van alle velden
         $request->validate([
-            'event_naam' => ['required', 'string', 'max:255'],
-            'voornaam_partner_1' => ['required', 'string', 'max:255'],
-            'achternaam_partner_1' => ['required', 'string', 'max:255'],
-            'voornaam_partner_2' => ['required', 'string', 'max:255'],
-            'achternaam_partner_2' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'trouwdatum' => ['required', 'date'],
-            'telefoonnummer' => ['required', 'string', 'max:15'],
-            'domeinnaam' => ['required', 'string', 'max:255', 'unique:'.User::class],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        // Gebruiker aanmaken met de extra velden
         $user = User::create([
-            'event_naam' => $request->event_naam,
-            'voornaam_partner_1' => $request->voornaam_partner_1,
-            'achternaam_partner_1' => $request->achternaam_partner_1,
-            'voornaam_partner_2' => $request->voornaam_partner_2,
-            'achternaam_partner_2' => $request->achternaam_partner_2,
+            'name' => $request->name,
             'email' => $request->email,
-            'trouwdatum' => $request->trouwdatum,
-            'telefoonnummer' => $request->telefoonnummer,
-            'domeinnaam' => $request->domeinnaam,
             'password' => Hash::make($request->password),
         ]);
 
-        // Gebruiker geregistreerd event triggeren
         event(new Registered($user));
 
-        // Automatisch inloggen na registratie
         Auth::login($user);
 
-        // Redirect naar de gewenste locatie
         return redirect(RouteServiceProvider::HOME);
     }
 }

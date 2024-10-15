@@ -13,15 +13,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('event_naam');
-            $table->string('voornaam_partner_1');
-            $table->string('achternaam_partner_1');
-            $table->string('voornaam_partner_2');
-            $table->string('achternaam_partner_2');
+            $table->string('name');
             $table->string('email')->unique();
-            $table->date('trouwdatum');
-            $table->string('telefoonnummer');
-            $table->string('domeinnaam')->unique();
+            $table->string('phonenumber')->unique()->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
