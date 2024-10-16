@@ -38,17 +38,19 @@ class CustomResetPasswordNotification extends Notification
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
-    {
-        $resetUrl = url('/reset-password/' . $this->token . '?email=' . urlencode($notifiable->email));
+{
+    $resetUrl = url('/reset-password/' . $this->token . '?email=' . urlencode($notifiable->email));
 
-        return (new MailMessage)
-            ->subject('Wachtwoord Reset Verzoek')
-            ->greeting('Hallo!')
-            ->line('Je ontvangt deze e-mail omdat we een wachtwoord reset verzoek hebben ontvangen voor je account.')
-            ->action('Reset Wachtwoord', $resetUrl)
-            ->line('Deze link verloopt over 60 minuten.')
-            ->line('Als je geen wachtwoord reset hebt aangevraagd, hoef je verder niets te doen.')
-            ->line('Als je problemen hebt met het klikken op de "Reset Wachtwoord" knop, kopieer en plak de onderstaande URL in je webbrowser: ' . $resetUrl)
-            ->salutation('Met vriendelijke groet, ForEverAndEver');
-    }
+    return (new MailMessage)
+                ->subject('Wachtwoord Reset Verzoek')
+                ->greeting('Hallo!')
+                ->line('Je ontvangt deze e-mail omdat we een wachtwoord reset verzoek hebben ontvangen voor je account.')
+                ->action('Reset Wachtwoord', $resetUrl)
+                ->line('Deze link verloopt over 60 minuten.')
+                ->line('Als je geen wachtwoord reset hebt aangevraagd, hoef je verder niets te doen.')
+                ->line('Als je problemen hebt met het klikken op de "Reset Wachtwoord" knop, kopieer en plak de onderstaande URL in je webbrowser:')
+                ->line($resetUrl)
+                ->salutation('Met vriendelijke groet, ForEverAndEver');
+}
+
 }
