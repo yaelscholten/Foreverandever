@@ -1,1 +1,1 @@
-© 2024 ForEverAndEver. Alle rechten voorbehouden.
+© 2024 ForeverAndEver. Alle rechten voorbehouden.
