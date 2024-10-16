@@ -18,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/register', function () {
+    return view('register');
+});
 
 
-//Auth::routes();
-Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+Auth::routes();
+Route::get('/register', [RegisteredUserController::class, 'create'])->name('auth.register');
 Route::post('/register', [RegisteredUserController::class, 'store']);
