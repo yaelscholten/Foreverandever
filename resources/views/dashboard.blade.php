@@ -1,15 +1,33 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-l text-white leading-tight">
-            {{ __('Overzicht') }}
+            {{ __('Mijn events') }}
         </h2>
     </x-slot>
-    <div class="w-full h-auto py-[5rem]">
+    <div class="w-full h-auto py-[3rem]">
         <div class="max-w-[80rem] px-[1rem] mx-auto">
-            <h1 class="text-xl font-[500] pb-[2rem]">Welkom {{ Auth::user()->name }}</h1>
-            <div class="w-full h-auto flex gap-[2rem]">
-                <div class="w-1/2 h-full ratio-1-2 bg-red-500 rounded-xl"></div>
-                <div class="w-1/2 h-full ratio-1-2 bg-red-500 rounded-xl"></div>
+            <div class="w-full h-auto bg-white p-[2rem] rounded-xl flex justify-around gao-[2rem]">
+                <div>
+                    <h2 class="font-bold">Eventnaam</h2>
+                </div>
+                <div>
+                    <h2 class="font-bold">Domeinnaam</h2>
+                </div>
+                <div>
+                    <h2 class="font-bold">Geacepteerd</h2>
+                </div>
+                <div>
+                    <h2 class="font-bold">Datum</h2>
+                </div>
+                <div>
+                    <h2 class="font-bold">Online t/m</h2>
+                </div>
+                <div>
+                    <h2 class="font-bold">Thema</h2>
+                </div>
+                <div>
+                    <h2 class="font-bold">Status</h2>
+                </div>
             </div>
         </div>
     </div>

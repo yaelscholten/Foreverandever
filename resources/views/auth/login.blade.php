@@ -28,13 +28,18 @@
                 </label>
             </div>
         </div>
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600  hover:text-gray-900 rounded-md focus:outline-none" href="{{ route('password.request') }}">
-                    {{ __('Wachtwoord vergeten?') }}
+        <div class="flex flex-col items-center justify-end mt-4">
+            <div class="flex items-center gap-[2rem] mb-[1rem]">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none" href="{{ route('register') }}">
+                    {{ __('Account aanmaken') }}
                 </a>
-            @endif
-            <x-primary-button class="ms-3">
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600  hover:text-gray-900 rounded-md focus:outline-none" href="{{ route('password.request') }}">
+                        {{ __('Wachtwoord vergeten?') }}
+                    </a>
+                @endif
+            </div>
+            <x-primary-button class="w-full flex items-center justify-center">
                 {{ __('Inloggen') }}
             </x-primary-button>
         </div>
