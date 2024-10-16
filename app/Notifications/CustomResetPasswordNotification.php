@@ -9,20 +9,44 @@ class CustomResetPasswordNotification extends Notification
 {
     public $token;
 
+    /**
+     * Create a notification instance.
+     *
+     * @param  string  $token
+     * @return void
+     */
     public function __construct($token)
     {
         $this->token = $token;
     }
 
+    /**
+     * Get the notification's delivery channels.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function via($notifiable)
+    {
+        return ['mail'];
+    }
+
+    /**
+     * Build the mail representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
     public function toMail($notifiable)
     {
+        $resetUrl = url('/reset-password/' . $this->token . '?email=' . urlencode($notifiable->email));
+
         return (new MailMessage)
-            ->subject('Wachtwoord herstellen')
-            ->greeting('Hallo!')
-            ->line('U ontvangt deze e-mail omdat we een verzoek hebben ontvangen om uw wachtwoord opnieuw in te stellen.')
-            ->action('Reset Wachtwoord', url(route('password.reset', $this->token, false)))
-            ->line('Deze link voor wachtwoordherstel verloopt over 60 minuten.')
-            ->line('Als u geen verzoek heeft ingediend voor wachtwoordherstel, is verdere actie niet nodig.')
-            ->salutation('Met vriendelijke groet, het team van Forever and Ever');
+                    ->subject('Wachtwoord Reset Verzoek')
+                    ->greeting('Hallo!')
+                    ->line('Je ontvangt deze e-mail omdat we een wachtwoord reset verzoek hebben ontvangen voor je account.')
+                    ->action('Reset Wachtwoord', $resetUrl)
+                    ->line('Deze link verloopt over 60 minuten.')
+                    ->line('Als je geen wachtwoord reset hebt aangevraagd, hoef je verder niets te doen.');
     }
 }
