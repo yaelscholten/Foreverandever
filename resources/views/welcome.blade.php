@@ -24,7 +24,7 @@
     <section class="relative h-[80vh] py-[5rem]">
         <div class="max-w-[80rem] px-[1rem] h-full mx-auto flex items-end justify-start">
             <video autoplay loop muted playsinline class="hero-video">
-            <source src="{{ asset('videos/dashboard-hero.mp4') }}" type="video/mp4">
+            <source src="{{ asset('videos/home-hero.mp4') }}" type="video/mp4">
             Your browser does not support the video tag.
             </video>
             <div class="absolute inset-0" style="background: linear-gradient(-60deg, rgba(111, 194, 118, 0.35) 0%, rgba(111, 194, 118, 0.80) 100%);"></div>
