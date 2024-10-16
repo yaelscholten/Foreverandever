@@ -23,10 +23,10 @@
     @include("shared.header")
     <section class="relative h-[80vh] py-[5rem]">
         <div class="max-w-[80rem] px-[1rem] h-full mx-auto flex items-end justify-start">
-            <!-- <video autoplay loop muted playsinline class="hero-video">
+            <video autoplay loop muted playsinline class="hero-video">
             <source src="{{ asset('videos/dashboard-hero.mp4') }}" type="video/mp4">
             Your browser does not support the video tag.
-            </video> -->
+            </video>
             <div class="absolute inset-0" style="background: linear-gradient(-60deg, rgba(111, 194, 118, 0.35) 0%, rgba(111, 194, 118, 0.80) 100%);"></div>
             <div class="relative w-full h-auto flex items-end">
                 <div class="w-1/2 h-full">
