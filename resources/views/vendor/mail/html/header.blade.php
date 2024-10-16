@@ -2,7 +2,7 @@
 
 <tr>
     <td class="header" style="background-color: #ebfaec; padding: 20px; text-align: center;">
-        <a href="{{ $url }}" style="display: inline-flex; align-items: center; gap: 1rem; text-decoration: none;">
+        <a href="https://foreverandever.nl" style="display: inline-flex; align-items: center; gap: 1rem; text-decoration: none;">
             <svg fill="#000" height="40px" width="40px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60" xml:space="preserve" stroke="#000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
