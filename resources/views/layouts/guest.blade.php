@@ -12,8 +12,8 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="w-full h-screen flex">
             <div style="background-image: url('{{ asset('fotos/login-imgage.jpg') }}');" class="w-1/2 h-full bg-center bg-cover"></div>
